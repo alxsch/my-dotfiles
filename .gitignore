@@ -1,0 +1,8 @@
+linode-cli
+systemd/
+Makefile
+nvim/
+coc/
+configstore/
+htop/
+jesseduffield/
