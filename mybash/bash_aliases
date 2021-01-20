@@ -4,7 +4,19 @@ alias vi="/snap/nvim/current/usr/bin/nvim"
 alias vim="/snap/nvim/current/usr/bin/nvim"
 alias l.="ls -d .* --color=auto"
 alias ..="cd .."
-#alias apt_update_all= "sudo apt update && sudo apt upgrade;"
-countjson() { grep -o "{" "$1" | wc -l; }
-ssh_remember() { eval `ssh-agent`;  ssh-add;}
+alias ....="cd ../.."
+alias ......="cd ../../.."
+alias ll='ls -l'
+alias la='ls -A'
+alias c="clear"
+alias hdi="howdoi"
+alias wanip="dig @resolver3.opendns.com myip.opendns.com +short"
+alias bashrc="source $HOME/.bashrc && source $HOME/.profile"
+alias less="less -N"
+alias tmux_attached="tmux ls -F "#{session_id}: #{?session_attached,attached,not attached}"
 
+updatesystem() { sudo apt update; sudo apt upgrade; }
+countjson() { grep -o "{" "$1" | wc -l; }
+ssh_remember() { eval `ssh-agent`;  ssh-add; }
+#source python3 .config/mybash/pywebfiles.py
+source .config/mybash/extract.sh 
