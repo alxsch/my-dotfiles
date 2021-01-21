@@ -1,8 +1,25 @@
 linode-cli
 systemd/
 Makefile
-nvim/
 coc/
 configstore/
 htop/
 jesseduffield/
+nvim/.netrwhist
+.log
+.lock
+
+#Various OS junk files
+.tmp
+.DS_Store
+Thumbs.db
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
