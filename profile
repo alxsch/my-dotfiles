@@ -34,11 +34,16 @@ if [ -d "/usr/local/go/bin" ] ; then
     PATH="/usr/local/go/bin:$PATH"
 fi
 
-if [[ -d "/home/aschroeder/.platformio/penv/bin" ]]; then
-    PATH="/home/aschroeder/.platformio/penv/bin:$PATH"
+if [[ -d "$HOME/.platformio/penv/bin" ]]; then
+    PATH="$HOME/.platformio/penv/bin:$PATH"
+fi
+
+if [[ -d "$HOME/.config/mybash/" ]] ; then
+    PATH="$HOME/.config/mybash/:$PATH"
 fi
 
 export CARGO_HOME=/main-pool/data/program/rust/.cargo
+export RUSTUP_HOME=/main-pool/data/program/rust/.rustup
+
 export MYVIMRC=~/./config/nvim/
 
-/usr/local/bin/aws_completer

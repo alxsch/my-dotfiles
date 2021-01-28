@@ -15,7 +15,7 @@ class InlineHandler(SimpleHTTPRequestHandler):
             self.send_header('Content-Disposition', 'inline')
         super().end_headers()
 
-# The following is based on the standard library implementation 
+# The following is based on the standard library implementation
 # https://github.com/python/cpython/blob/3.6/Lib/http/server.py#L1195
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

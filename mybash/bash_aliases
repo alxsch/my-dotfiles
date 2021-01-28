@@ -1,7 +1,6 @@
-alias python="python3"
+alias python="python3.9"
+alias python3="python3.9"
 alias pip="pip3"
-alias vi="/snap/nvim/current/usr/bin/nvim"
-alias vim="/snap/nvim/current/usr/bin/nvim"
 alias l.="ls -d .* --color=auto"
 alias ..="cd .."
 alias ....="cd ../.."
@@ -14,9 +13,19 @@ alias wanip="dig @resolver3.opendns.com myip.opendns.com +short"
 alias bashrc="source $HOME/.bashrc && source $HOME/.profile"
 alias less="less -N"
 alias tmux_attached="tmux ls -F "#{session_id}: #{?session_attached,attached,not attached}"
+alias ipMine="ip add show enp3s0 |egrep 'inet '| awk '{print }'| cut -d '/' -f1"
+alias lsd="ls -dl */"
+alias nmap="docker run --rm uzyexe/nmap "
+alias sizeof="du -sh"
 
 updatesystem() { sudo apt update; sudo apt upgrade; }
 countjson() { grep -o "{" "$1" | wc -l; }
 ssh_remember() { eval `ssh-agent`;  ssh-add; }
-#source python3 .config/mybash/pywebfiles.py
-source .config/mybash/extract.sh 
+source
+if [ -f ~/.config/mybash/pywebfiles.py ]; then
+    .config/mybash/pywebfiles.py
+fi
+
+if [ -f ~/.config/mybash/extract.sh ]; then
+    .config/mybash/extract.sh
+fi
