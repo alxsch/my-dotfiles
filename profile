@@ -42,6 +42,10 @@ if [[ -d "$HOME/.config/mybash/" ]] ; then
     PATH="$HOME/.config/mybash/:$PATH"
 fi
 
+if [[ /usr/local/cuda-11.2/bin ]]; then
+    PATH="/usr/local/cuda-11.2/bin:$PATH"
+fi
+
 export CARGO_HOME=/main-pool/data/program/rust/.cargo
 export RUSTUP_HOME=/main-pool/data/program/rust/.rustup
 

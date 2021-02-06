@@ -30,8 +30,6 @@ call plug#begin(expand('~/.vim/plugged'))
 "*****************************************************************************
 "" Plug install packages
 "*****************************************************************************
-Plug 'scrooloose/nerdtree' "File Explorer
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'zhou13/vim-easyescape' "Use jk instead of ESC
 Plug 'tpope/vim-commentary' "A...
 Plug 'tpope/vim-fugitive' "Git for VIM
@@ -52,6 +50,8 @@ Plug 'stevearc/vim-arduino'
 Plug 'coddingtonbear/neomake-platformio'
 
 let g:polyglot_disabled = ['python']
+let g:polyglot_disabled = ['python']
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -68,9 +68,20 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-"" Snippets
+"" Snippets / Autocomplete
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'ycm-core/YouCompleteme'
+Plug 'ervandew/supertab'
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
