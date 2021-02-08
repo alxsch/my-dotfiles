@@ -94,5 +94,6 @@ if ! shopt -oq posix; then
 fi
 
 complete -C '$HOME/.local/bin/aws_completer' aws
+complete -C '$HOME/.local/bin/linode-cli' linode_cli
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

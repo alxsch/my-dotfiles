@@ -8,6 +8,12 @@ jesseduffield/
 nvim/.netrwhist
 .log
 .lock
+dconf/
+evolution/
+ibus/
+pulse/
+user-dirs.dirs
+user-dirs.locale
 
 #Various OS junk files
 .tmp

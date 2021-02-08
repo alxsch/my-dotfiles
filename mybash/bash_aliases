@@ -24,7 +24,6 @@ alias pip="pip3"
 
 alias calc="bc"
 alias hdi="howdoi"
-alias monero_check="curl -s https://blox.minexmr.com/tx/a49c8d863af40d3146ed8370a90d43a7e6fdd9d88a2a5257f23266aa5d6f7dc0 | grep 'output(s)' | awk '{print }' | sed 's#<h3>##g'"
 
 updatesystem() { sudo apt update; sudo apt upgrade; }
 countjson() { grep -o "{" "$1" | wc -l; }
