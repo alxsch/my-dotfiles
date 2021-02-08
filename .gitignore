@@ -15,6 +15,9 @@ pulse/
 user-dirs.dirs
 user-dirs.locale
 
+#Used for refence
+nvim/awesome-streamerrc
+
 #Various OS junk files
 .tmp
 .DS_Store
