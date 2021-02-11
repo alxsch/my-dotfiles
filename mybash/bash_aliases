@@ -21,9 +21,12 @@ alias nmap="docker run --rm uzyexe/nmap "
 alias python="python3.9"
 alias python3="python3.9"
 alias pip="pip3"
+alias pip-update-user="pip freeze --user | cut -d'=' -f1 | xargs pip install --user -U"
 
 alias calc="bc"
 alias hdi="howdoi"
+#Rust commands
+alias cargo-update-all="cargo-install-update install-update --all"
 
 updatesystem() { sudo apt update; sudo apt upgrade; }
 countjson() { grep -o "{" "$1" | wc -l; }
