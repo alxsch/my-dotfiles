@@ -1,0 +1,53 @@
+[user]
+	email = schroederalx@gmail.com
+	name = Alexander Schroeder
+[core]
+    editor = nvim
+    #Exclude file block
+	excludesFile = *.swp
+    excludesFile = *.db
+    excludesFile = log/
+    excludesFile = *.log
+    excludesFile = bin
+    excludesFile = a.out
+    excludesFile = bin
+    #Linux
+    excludesFile = *~
+    excludesFile = .fuse_hidden*
+    excludesFile = .directory
+    excludesFile = .Trash-*
+    excludesFile = .nfs*
+    #Windows
+    excludesFile = Thumbs.db
+    excludesFile = Thumbs.db:encryptable
+    excludesFile = ehthumbs.db
+    excludesFile = ehthumbs_vista.db
+    excludesFile = *.stackdump
+    excludesFile = [Dd]esktop.ini
+    excludesFile = $RECYCLE.BIN/
+    excludesFile = *.cab
+    excludesFile = *.msi
+    excludesFile = *.msix
+    excludesFile = *.msm
+    excludesFile = *.msp
+    excludesFile = *.lnk
+    #Mac
+    excludesFile = .DS_STORE
+    excludesFile = .AppleDouble
+    excludesFile = .LSOverride
+    excludesFile = ._*
+    excludesFile = .DocumentRevisions-V100
+    excludesFile = .fseventsd
+    excludesFile = .Spotlight-V100
+    excludesFile = .TemporaryItems
+    excludesFile = .Trashes
+    excludesFile = .VolumeIcon.icns
+    excludesFile = .com.apple.timemachine.donotpresent
+    excludesFile = .AppleDB
+    excludesFile = .AppleDesktop
+    excludesFile = Network Trash Folder
+    excludesFile = Temporary Items
+    excludesFile = .apdisk
+
+[init]
+	defaultBranch = main
