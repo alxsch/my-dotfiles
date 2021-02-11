@@ -189,6 +189,7 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+cnoreabbrev X x
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
