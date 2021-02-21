@@ -1,4 +1,7 @@
-alias reloadbashrc="source $HOME/.bashrc && source $HOME/.profile"
+alias reloadbashrc="source $HOME/.bashrc \
+    source $HOME/.profile \
+    source $HOME/.config/mybash/env_bash"
+
 alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
@@ -7,7 +10,6 @@ alias la='ls -A --color=auto'
 alias lsd="ls -dl --color=auto */"
 alias l.="ls -d .* --color=auto"
 alias c="clear"
-alias less="less -N"
 alias findtext='grep -rI "$1" $2 '
 alias sizeof="du -sh"
 alias locate='find $1 -iname "$2" '
@@ -36,6 +38,15 @@ if [ -f $HOME/.config/mybash/pywebfiles ]; then
     $HOME/.config/mybash/pywebfiles
 fi
 
-if [ -f $HOME/.config/mybash/extract ]; then
+if [ -x $HOME/.config/mybash/extract ]; then
     $HOME/.config/mybash/extract
 fi
+
+if [ -x $HOME/.config/mybash/docker.sh ]; then
+    $HOME/.config/mybash/docker.sh
+fi
+
+if [ -x /main-pool/data/dockercompose/gameservers/lgsm/game-server-control ]; then
+    /main-pool/data/dockercompose/gameservers/lgsm/game-server-control
+fi
+

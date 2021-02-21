@@ -81,6 +81,11 @@ fi
          . ~/.config/mybash/bash_aliases
  fi
 
+ # Env vars
+ if [ -f ~/.config/mybash/env.bash ]; then
+     . ~/.config/mybash/env_bash
+ fi
+
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
