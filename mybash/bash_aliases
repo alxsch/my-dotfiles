@@ -39,14 +39,14 @@ if [ -f $HOME/.config/mybash/pywebfiles ]; then
 fi
 
 if [ -x $HOME/.config/mybash/extract ]; then
-    $HOME/.config/mybash/extract
+   . $HOME/.config/mybash/extract
 fi
 
 if [ -x $HOME/.config/mybash/docker.sh ]; then
-    $HOME/.config/mybash/docker.sh
+   . $HOME/.config/mybash/docker.sh
 fi
 
 if [ -x /main-pool/data/dockercompose/gameservers/lgsm/game-server-control ]; then
-    /main-pool/data/dockercompose/gameservers/lgsm/game-server-control
+    . /main-pool/data/dockercompose/gameservers/lgsm/game-server-control
 fi
 

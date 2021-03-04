@@ -2,6 +2,7 @@ linode-cli
 systemd/
 Makefile
 coc/
+rclone/
 configstore/
 htop/
 jesseduffield/
@@ -34,3 +35,6 @@ Thumbs.db
 
 # Local History for Visual Studio Code
 .history/
+
+# Backup files
+*.bak
