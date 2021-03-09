@@ -2,6 +2,8 @@ linode-cli
 systemd/
 Makefile
 coc/
+gh/*
+!gh/config.yml
 rclone/
 configstore/
 htop/

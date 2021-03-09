@@ -13,6 +13,7 @@ alias c="clear"
 alias findtext='grep -rI "$1" $2 '
 alias sizeof="du -sh"
 alias locate='find $1 -iname "$2" '
+tgz_encrypt() { tar -czf - $1 | openssl enc -e -aes256 -out $1$(date +%s).tgz; }
 
 alias tmux_attached="tmux ls -F "#{session_id}: #{?session_attached,attached,not attached}"
 
@@ -24,9 +25,12 @@ alias python="python3.9"
 alias python3="python3.9"
 alias pip="pip3"
 alias pip-update-user="pip freeze --user | cut -d'=' -f1 | xargs pip install --user -U"
+temp_pythondev() { docker run --rm -it --name pydev -e HISTSIZE=0 -v $(pwd):/root -w="/root" python pip install $1 & bash; }
 
 alias calc="bc"
 alias hdi="howdoi"
+#Git and dev stuff?
+alias master2main="git branch -m master main"
 #Rust commands
 alias cargo-update-all="cargo-install-update install-update --all"
 

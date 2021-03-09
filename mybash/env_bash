@@ -1,3 +1,5 @@
 export HOWDOI_COLORIZE=1
 export HOWDOI_SEARCH_ENGINE=duckduckgo
 export LESSHISTSIZE=0
+export EDITOR=nvim
+export DOCKER_COMPOSE_IMAGE_TAG=ghcr.io/linuxserver/docker-compose:alpine
