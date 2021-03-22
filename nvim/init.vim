@@ -48,8 +48,8 @@ Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'tomasiser/vim-code-dark'
 Plug 'stevearc/vim-arduino'
 Plug 'coddingtonbear/neomake-platformio'
+Plug 'tpope/vim-surround'
 
-let g:polyglot_disabled = ['python']
 let g:polyglot_disabled = ['python']
 
 if isdirectory('/usr/local/opt/fzf')

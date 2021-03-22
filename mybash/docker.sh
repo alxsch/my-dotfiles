@@ -1,7 +1,5 @@
 #!/bin/sh
 
-alias dm='docker-machine'
-alias dmx='docker-machine ssh'
 alias dk='docker'
 alias dki='docker images'
 alias dks='docker service'
@@ -12,8 +10,31 @@ alias dkflush='docker rm `docker ps --no-trunc -aq`'
 alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias dkt='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"'
 alias dkps="docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"
+
+#Docker-compose
+alias dkcupdate="docker-compose pull && docker-compose up -d"
 alias dkcpull="docker-compose pull"
 alias dkcrestart="docker-compose restart"
+
+#Generate dockercompose project
+gen_dockercompose () {
+    mkdir "$1" && \
+    echo "---
+version: \"3\"
+
+services:
+        app:
+                image: app
+                ports:
+                  - \"##:##\"
+
+    " > "$1"/docker-compose.yml;
+}
+
+dkcupdateall(){
+    find /main-pool/data/configs/dockercompose/ -iname "docker-compose.yml" -print 2>/dev/null
+    docker-compose pull && docker-compose up -d
+}
 
 dkln() {
   docker logs -f `docker ps | grep $1 | awk '{print $1}'`
