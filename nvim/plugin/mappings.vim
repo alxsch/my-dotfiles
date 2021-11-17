@@ -1,5 +1,3 @@
-"" Mappings
-
 " Souce vim.init and related config files
 nnoremap <Leader>R :source ~/.config/nvim/init.vim<CR>
 
@@ -28,7 +26,6 @@ noremap <Leader>gr :Gremove<CR>
 " session management
 nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
-nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Set working directory
@@ -67,9 +64,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
-" ale
-let g:ale_linters = {}
-
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
@@ -105,7 +99,6 @@ noremap <C-h> <C-w>h
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
-
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -119,13 +112,8 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
+nnoremap <Leader>o :.GBrowse<CR>
 
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
 
-" write file as root
-command! SaveAsRoot :w !sudo tee %
-
-" terminal emulation
-nnoremap <silent> <leader>sh :terminal<CR>

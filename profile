@@ -46,6 +46,13 @@ if [[ /usr/local/cuda-11.2/bin ]]; then
     PATH="/usr/local/cuda-11.2/bin:$PATH"
 fi
 
+if [[ /usr/local/balena_cli ]]; then
+    PATH="/usr/local/balena_cli:$PATH"
+fi
+if [[ /home/aschroeder/.local/bin ]]; then
+    PATH="/home/aschroeder/.local/bin:$PATH"
+fi
+
 export CARGO_HOME=/main-pool/data/program/rust/.cargo
 export RUSTUP_HOME=/main-pool/data/program/rust/.rustup
 

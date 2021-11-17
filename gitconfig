@@ -51,3 +51,5 @@
 
 [init]
 	defaultBranch = main
+[alias]
+	master2main = branch -m master main

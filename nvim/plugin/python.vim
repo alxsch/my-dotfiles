@@ -26,3 +26,4 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#smart_auto_mappings = 0
+let g:jedi#environment_path = "/main-pool/data/program/python/.virtualenvs/instock/bin/python3"

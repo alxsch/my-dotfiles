@@ -3,22 +3,18 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# Reduce history files
+HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
+LESSHISTSIZE=0
+LESSHISTFILE=/dev/null
 
 # check the window size after each command and, if necessary,
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -47,7 +43,8 @@ fi
 
 if [ "$color_prompt" = yes ]; then
    #PS1='\e[1;32m\u\e[0m \e[1;36]\W\e[0m \$ '
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+   PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1)\$ ' 
+   #PS1='\n \[\e[1;95m\] \u@\h \[\e[0;32m\]\w \[\e[1;30m\] $(__git_ps1 " (%s)" ) \n \[\e[1;95m\] \@ \n $ \[\e[0;30m\]' 
 
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -63,18 +60,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto -h'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # Alias definitions.
 
  if [ -f ~/.config/mybash/bash_aliases ]; then
@@ -85,9 +70,6 @@ fi
  if [ -f ~/.config/mybash/env_bash ]; then
     . ~/.config/mybash/env_bash
  fi
-
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -100,7 +82,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-complete -C '$HOME/.local/bin/aws_completer' aws
-complete -C '$HOME/.local/bin/linode-cli' linode_cli
+complete -C "$HOME/.local/bin/aws_completer" aws
+complete -C "$HOME/.local/bin/linode-cli" linode_cli
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+complete -C /usr/bin/vault vault

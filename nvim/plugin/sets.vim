@@ -38,7 +38,7 @@ set gcr=
 set scrolloff=5
 
 "" Status Bar
-set laststatus=2
+set laststatus=3
 
 set title
 set titlestring=%F

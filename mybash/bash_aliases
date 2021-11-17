@@ -1,3 +1,4 @@
+#!/bin/bash
 alias reloadbashrc="source \$HOME/.bashrc \
     source \$HOME/.profile \
     source \$HOME/.config/mybash/env_bash"
@@ -5,36 +6,58 @@ alias reloadbashrc="source \$HOME/.bashrc \
 alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
-alias ll='ls -l --color=auto'
+
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto -h'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias ll='ls -l --color=auto'
+    alias lsd="ls -dl --color=auto */"
+    alias l.="ls -d .* --color=auto"
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 alias la='ls -A --color=auto'
-alias lsd="ls -dl --color=auto */"
-alias l.="ls -d .* --color=auto"
+alias t='tmux attach'
+
 alias c="clear"
-alias sizeof="du -sh"
-function locate () { find "$1" -iname "$2" ;}
-function tgz_encrypt () { tar -czf - "$1" | openssl enc -e -aes256 -out "$1$(date +%s)".tgz; }
+alias bashlevel="echo \$SHLVL"
+alias diff="diff --color"
+tgz_encrypt () { tar -czf - "$1" | openssl enc -e -aes256 -out "$1$(date +%s)".tgz; }
 
 alias wanip="dig @resolver3.opendns.com myip.opendns.com +short"
-function ipMine () { ip add show enp3s0 |grep -E "inet "| awk "{print \"$2\"}"| cut -d "/" -f1; }
+ipMine () { ip add show enp3s0 |grep -E "inet "| awk "{print \"$2\"}"| cut -d "/" -f1; }
 alias nmap="docker run --rm uzyexe/nmap "
 
 alias python="python3.9"
 alias python3="python3.9"
-alias pip="pip3"
+#alias pip="pip3"
 alias pip-update-user="pip freeze --user | cut -d'=' -f1 | xargs pip install --user -U"
-function temp_pythondev () { docker run --rm -it --name pydev -e HISTSIZE=0 -v "$(pwd)":/root -w="/root" python bash; }
+temp_pythondev () { docker run --rm -it --name pydev -e HISTSIZE=0 -v "$(pwd)":/root -w="/root" python bash; }
 
-alias calc="bc"
 alias hdi="howdoi"
 #Git and dev stuff?
 alias master2main="git branch -m master main"
+alias ga="git add"
+alias gc="git commit -a"
+
 #Rust commands
 alias cargo-update-all="cargo-install-update install-update --all"
 
-function update_full () { sudo sh -c apt-get -y update;apt-get -y dist-upgrade;apt-get -y autoremove;apt-get -y autoclean; }
-function updatesystem () { sudo apt update; sudo apt upgrade; }
-function countjson () { grep -o "{" "$1" | wc -l; }
-function ssh_remember () { eval "$(ssh-agent)";  ssh-add; }
+update_full () { sudo sh -c apt-get -y update;apt-get -y dist-upgrade;apt-get -y autoremove;apt-get -y autoclean; }
+updatesystem () { sudo apt update; sudo apt upgrade; /usr/bin/python3 -m pip install --upgrade pip; }
+countjson () { grep -o "{" "$1" | wc -l; }
+ssh_remember () { eval "$(ssh-agent)";  ssh-add; }
+removeempty () { read -p "Are you sure? " -n 1 -r
+    if [[ $REPLY =~ ^[Yy]$ ]] ;then
+        find . -empty -type f -delete && find . -empty -type d -delete
+        echo
+    fi; }
+start_nginx () { docker-compose -f /main-pool/data/configs/dockercompose/backend/docker-compose.yml "$1" ; }
 
 if [ -f "$HOME/.config/mybash/pywebfiles" ]; then
     "$HOME/.config/mybash/pywebfiles"
@@ -51,3 +74,4 @@ if [ -x "$HOME/.config/mybash/docker.sh" ]; then
 if [ -x /main-pool/data/dockercompose/gameservers/lgsm/game-server-control ]; then
     . /main-pool/data/configs/dockercompose/gameservers/lgsm/game-server-control
 fi
+alias gcloud-shell="gcloud cloud-shell ssh --authorize-session"

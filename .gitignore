@@ -50,3 +50,6 @@ Thumbs.db
 
 # Backup files
 *.bak
+fzf/
+helm/
+lazygit/

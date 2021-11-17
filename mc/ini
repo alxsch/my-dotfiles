@@ -82,11 +82,13 @@ editor_backup_extension=~
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
-skin=default
+skin=dark
+
+shadows=true
 
 [Layout]
 output_lines=0
-left_panel_size=99
+left_panel_size=66
 top_panel_size=0
 message_visible=true
 keybar_visible=true
@@ -117,7 +119,7 @@ color_terminals=
 
 [Panels]
 show_mini_info=true
-kilobyte_si=false
+kilobyte_si=true
 mix_all_files=false
 show_backups=true
 show_dot_files=true
@@ -131,10 +133,12 @@ panel_scroll_pages=true
 panel_scroll_center=false
 mouse_move_pages=true
 filetype_mode=true
-permission_mode=false
+permission_mode=true
 torben_fj_mode=false
 quick_search_mode=2
 select_flags=6
+
+simple_swap=false
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print

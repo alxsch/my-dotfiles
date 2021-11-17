@@ -46,9 +46,8 @@ Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'tomasiser/vim-code-dark'
-Plug 'stevearc/vim-arduino'
-Plug 'coddingtonbear/neomake-platformio'
 Plug 'tpope/vim-surround'
+Plug 'jmcantrell/vim-virtualenv'
 
 let g:polyglot_disabled = ['python']
 
@@ -86,18 +85,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
-
-" go
-"" Go Lang Bundle
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
 
 " go
 Plug 'dense-analysis/ale'

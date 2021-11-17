@@ -1,5 +1,26 @@
 export HOWDOI_COLORIZE=1
 export HOWDOI_SEARCH_ENGINE=duckduckgo
+
 export LESSHISTSIZE=0
+export WGETHISTSIZE=0
+
 export EDITOR=nvim
+
 export DOCKER_COMPOSE_IMAGE_TAG=ghcr.io/linuxserver/docker-compose:alpine
+
+export HEROKU_AC_BASH_SETUP_PATH=/home/aschroeder/.cache/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Virtualenv wrapper
+export WORKON_HOME=/main-pool/data/program/python/.virtualenvs
+export PROJECT_HOME=/main-pool/data/program/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+# Git prompt/PS1
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+# export COMPOSE_OPTIONS="--log-level warning"
